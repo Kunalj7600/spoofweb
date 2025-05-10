@@ -1,0 +1,1250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Indo-Pak Tensions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: #333;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        header {
+            background: linear-gradient(90deg, #1a365d, #4a90e2);
+            color: white;
+            padding: 15px 0;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 40px;
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 5px 10px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+        }
+
+        .search-icon, .menu-icon {
+            cursor: pointer;
+            font-size: 20px;
+            display: flex;
+            align-items: center;
+            padding: 0 10px;
+        }
+        .main-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            margin-top: 30px;
+        }
+        .news-article {
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            padding: 20px;
+        }
+        .headline {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+        .byline {
+            font-style: italic;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        .article-image {
+            width: 100%;
+            height: 400px;
+            background-color: #eee;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+        }
+        .article-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px; /* Optional: Adds rounded corners */
+        }
+        .article-content p {
+            margin-bottom: 20px;
+        }
+        .read-more {
+            display: inline-block;
+            background-color: #1a365d;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .sidebar {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .sidebar-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #1a365d;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
+        }
+        .news-item {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #ddd;
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .news-item:hover {
+            transform: translateY(-5px); /* Moves the tile slightly upward */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Adds a shadow effect */
+        }
+
+        .news-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(26, 54, 93, 0.1); /* Light overlay effect */
+            z-index: 1;
+            transition: left 0.3s ease;
+        }
+
+        .news-item:hover::before {
+            left: 0; /* Moves the overlay into view */
+        }
+
+        .news-item h4, .news-item p {
+            position: relative;
+            z-index: 2; /* Ensures text stays above the overlay */
+        }
+
+        /* Optional: Add a subtle animation to the tiles */
+        .news-item {
+            animation: floatTile 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes floatTile {
+            from {
+                transform: translateY(0);
+            }
+            to {
+                transform: translateY(-3px);
+            }
+        }
+        .news-item:last-child {
+            border-bottom: none;
+        }
+        footer {
+            background-color: #1a365d;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+        }
+        
+        /* Glitch Effect Styling */
+        .glitch-screen {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            z-index: 1000;
+            color: lime;
+            font-family: monospace;
+            overflow: hidden;
+            padding: 20px;
+            animation: glitchBackground 0.5s infinite;
+        }
+        
+        @keyframes glitchBackground {
+            0% { background-color: black; }
+            50% { background-color: black; }
+            51% { background-color: #300; }
+            52% { background-color: black; }
+            97% { background-color: black; }
+            98% { background-color: #030; }
+            99% { background-color: black; }
+        }
+        
+        @keyframes blink {
+            0% { opacity: 1; }
+            49% { opacity: 1; }
+            50% { opacity: 0; }
+            100% { opacity: 0; }
+        }
+        .glitch-text {
+            position: relative;
+            animation: glitch 0.5s infinite;
+        }
+        @keyframes glitch {
+            0% { transform: translate(0); }
+            20% { transform: translate(-3px, 3px); }
+            40% { transform: translate(-3px, -3px); }
+            60% { transform: translate(3px, 3px); }
+            80% { transform: translate(3px, -3px); }
+            100% { transform: translate(0); }
+        }
+        .data-row {
+            margin: 5px 0;
+            animation: slideIn 0.3s forwards;
+            opacity: 0;
+        }
+        @keyframes slideIn {
+            from { transform: translateX(-20px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background-color: #333;
+            margin: 20px 0;
+            border: 1px solid lime;
+        }
+        .progress {
+            height: 100%;
+            background-color: lime;
+            width: 0%;
+            transition: width 5s linear;
+        }
+        .popup {
+            position: fixed;
+            background-color: #f44336;
+            color: white;
+            border: 2px solid black;
+            padding: 20px;
+            width: 300px;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            z-index: 1001;
+            /* Removed shake animation */
+        }
+        /* Removed @keyframes shake animation */
+        .close-button {
+            display: inline-block;
+            padding: 5px 10px;
+            background-color: white;
+            color: black;
+            text-decoration: none;
+            margin-top: 10px;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        .popup-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            display: none;
+        }
+
+        .breaking-news {
+            background-color: #ff0000;
+            color: white;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-weight: bold;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .breaking-news span {
+            display: inline-block;
+            white-space: nowrap;
+            animation: scroll 10s linear infinite;
+        }
+
+        @keyframes scroll {
+            from {
+                transform: translateX(100%);
+            }
+            to {
+                transform: translateX(-100%);
+            }
+        }
+
+        .ad-banner {
+            background-color: #f5f5f5;
+            border: 1px solid #ddd;
+            text-align: center;
+            padding: 10px;
+            margin: 20px 0;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .ad-banner img {
+            max-width: 100%;
+            height: auto;
+        }
+
+
+        .trending {
+            background-color: #ffffff;
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .trending h4 {
+            font-size: 18px;
+            font-weight: 500;
+            color: #1a365d;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 10px;
+        }
+
+        .trending ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .trending ul li {
+            margin-bottom: 10px;
+        }
+
+        .trending ul li a {
+            color: #4a90e2;
+            font-weight: 500;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .trending ul li a:hover {
+            color: #357ab8;
+        }
+
+        .read-more,
+        .search-bar button {
+            background-color: #4a90e2;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 15px;
+            border: none;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .read-more:hover,
+        .search-bar button:hover {
+            background-color: #357ab8;
+            color: white;
+            text-decoration-color: #eee;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+
+            .news-article {
+                margin-bottom: 20px;
+            }
+
+            nav {
+                flex-direction: column;
+                gap: 10px;
+            }
+        }
+
+        a {
+            color: #4a90e2;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #357ab8;
+        }
+        .footer {
+            background-color: #1e1e1e;
+            color: #ffffff;
+            padding: 30px 0;
+            width: 100%;
+        }
+        
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 30px;
+        }
+        
+        .footer-section {
+            margin-bottom: 30px;
+        }
+        
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .footer-logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+        
+        .footer-logo-text {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        
+        .footer-tagline {
+            font-size: 12px;
+            color: #aaa;
+            margin-bottom: 15px;
+        }
+        
+        .footer-powered {
+            font-size: 14px;
+            color: #aaa;
+            margin-bottom: 15px;
+        }
+        
+        .footer-divider {
+            border-top: 1px solid #333;
+            margin: 15px 0;
+        }
+        
+        .footer-heading {
+            font-size: 16px;
+            font-weight: bold;
+            margin-bottom: 15px;
+            color: #ffffff;
+        }
+        
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            margin-bottom: 20px;
+        }
+        
+        .footer-links a {
+            color: #aaa;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s;
+        }
+        
+        .footer-links a:hover {
+            color: #ffffff;
+        }
+        
+        .footer-links span {
+            color: #555;
+            margin: 0 5px;
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .footer-social a {
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 24px;
+        }
+        
+        .newsletter-form {
+            display: flex;
+            margin-top: 15px;
+        }
+        
+        .newsletter-input {
+            flex-grow: 1;
+            padding: 10px;
+            border: none;
+            background-color: #333;
+            color: #fff;
+        }
+        
+        .newsletter-button {
+            background-color: #1a73e8;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+        
+        .footer-news {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .news-item {
+            font-size: 13px;
+            margin-bottom: 15px;
+        }
+        
+        .news-item a {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .news-item a:hover {
+            color: #ffffff;
+        }
+        
+        .footer-copyright {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #333;
+            font-size: 14px;
+            color: #aaa;
+        }
+        
+        .icon {
+            width: 24px;
+            height: 24px;
+            fill: currentColor;
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                display: flex;
+                flex-direction: column;
+            }
+
+            nav {
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+
+            .latest-story {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .latest-story img {
+                width: 100%;
+                height: auto;
+            }
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .footer-news {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .latest-story {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .latest-story img {
+            width: 60px;
+            height: 60px;
+            border-radius: 5px;
+            object-fit: cover;
+        }
+
+        .latest-story div {
+            font-size: 14px;
+            color: #333;
+        }
+
+        .latest-story div a {
+            color: #4a90e2;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .latest-story div a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <img src="https://www.indiatimes.com/images/logo3sec.gif" alt="Logo" style="background-color:rgba(0, 0, 0, 0); clip-path: polygon(0 0, 100% 0, 100% 60%, 60% 100%, 0 100%);">
+            </div>
+            <nav>
+                <a href="https://www.indiatimes.com/">Home</a>
+                <a href="https://www.indiatimes.com/lifestyle">Lifestyle</a>
+                <a href="https://www.indiatimes.com/health">Health & Wellness</a>
+                <a href="https://www.indiatimes.com/health">Fashion</a>
+                <a href="https://www.indiatimes.com/worth">Worth</a>
+                <a href="https://www.indiatimes.com/entertainment">Entertainment</a>
+                <a href="#">Explore</a>
+            </nav>
+            <div style="display: flex; align-items: center;">
+                <div class="search-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8"></circle>
+                        <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+                    </svg>
+                </div>
+                <div class="menu-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <line x1="3" y1="12" x2="21" y2="12"></line>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <line x1="3" y1="18" x2="21" y2="18"></line>
+                    </svg>
+                </div>
+            </div>  
+        </div>
+    </header>
+
+    <div class="breaking-news">
+        <span>Breaking: Global Climate Summit concludes with historic agreements | Stock markets rally after AI regulations announced | Tensions rise along South Asian border...</span>
+    </div>
+
+
+
+    <div class="container main-content">
+        <main class="news-article">
+            <h1 class="headline">Tensions Rise Along South Asian Border: Diplomatic Efforts Underway</h1>
+            <div class="byline">By Sarah Johnson | May 10, 2025</div>
+            <div class="article-image">
+                <img src="modi.avif" alt="">
+            </div>
+            <div class="article-content">
+                <p>NEW DELHI — Diplomatic tensions escalated today as representatives from both India and Pakistan exchanged statements regarding recent border incidents. The United Nations has called for restraint while international mediators work to de-escalate the situation.</p>
+                
+                <p>Foreign ministers from both nations are scheduled to meet in Geneva next week for emergency talks. "We remain committed to peaceful resolution through dialogue," said India's Foreign Ministry spokesperson in a statement released this morning.</p>
+                
+                <p>The recent developments follow months of increasing rhetoric from both sides. Analysts suggest the current situation, while concerning, remains within the bounds of normal diplomatic relations between the two nuclear powers.....</p>
+                
+                <a class="read-more" id="read-more-btn">Read More</a>
+                
+                <p id="hidden-content" style="display: none;">
+                    World leaders have called for calm, with the US State Department issuing a statement encouraging both nations to "exercise maximum restraint and engage in direct dialogue." European Union officials have offered to host additional talks if requested by both parties.
+                </p>
+            </div>
+        </main>
+
+        <!-- <aside class="sidebar">
+            <h3 class="sidebar-title">Latest News</h3>
+            <div class="news-item">
+                <h4>Global Climate Summit Concludes With New Agreements</h4>
+                <p>Representatives from 195 countries agree on new emissions targets...</p>
+            </div>
+            <div class="news-item">
+                <h4>Technology Stocks Rise As New AI Regulations Announced</h4>
+                <p>Markets respond positively to regulatory clarity...</p>
+            </div>
+            <div class="news-item">
+                <h4>Sports: International Cricket Council Announces Tournament Schedule</h4>
+                <p>The upcoming season will feature matches across three continents...</p>
+            </div>
+        </aside> -->
+
+        <aside class="sidebar">
+            <h3 class="sidebar-title">Latest Stories</h3>
+            <div class="latest-story">
+                <img src="https://im.indiatimes.in/content/2025/May/Donald-Trumps-ceasefire-tweet-sparks-debate_-Indians-doubt-Pakistans-will-to-uphold-peace-stop-sponsoringterror-1_681f5732a24f3.jpg?w=300&h=180&cc=1&webp=1&q=75" alt="Story 5">
+                <div>
+                    <a href="https://www.indiatimes.com/trending/donald-trumps-ceasefire-tweet-sparks-debate-indians-doubt-pakistans-will-to-uphold-peace-stop-sponsoring-terror-658616.html">Trump's ceasefire tweet sparks debate: Indians doubt Pakistan's commitment</a>
+                </div>
+            </div>
+            <div class="latest-story">
+                <img src="assets/image.png" alt="Story 1">
+                <div>
+                    <a href="https://www.indiatimes.com/events/20-messages-for-mom-in-heaven-say-happy-mothers-day-2025-with-love-miss-you-always-maa-658628.html">20+ messages for mom in heaven: Say 'Happy Mother's Day 2025' with love</a>
+                </div>
+            </div>
+            <div class="latest-story">
+                <img src="assets/image copy.png" alt="Story 2">
+                <div>
+                    <a href="https://www.indiatimes.com/events/happy-mothers-day-2025-instagram-captions-for-your-super-mom-on-her-special-day-658627.html">Happy Mother's Day 2025 Instagram captions for your super mom</a>
+                </div>
+            </div>
+            <div class="latest-story">
+                <img src="assets/image copy 2.png" alt="Story 3">
+                <div>
+                    <a href="https://www.indiatimes.com/trending/is-ipl-2025-back-india-pakistan-ceasefire-news-sparks-buzz-online-rcb-fans-dare-to-dream-again-658622.html">IPL 2025 returns? Ceasefire buzz reignites RCB trophy dreams</a>
+                </div>
+            </div>
+            <div class="latest-story">
+                <img src="assets/image copy 3.png" alt="Story 4">
+                <div>
+                    <a href="https://www.indiatimes.com/lifestyle/self/11-movies-to-watch-out-for-this-summer-if-you-are-a-hollywood-buff-345532.html">11 Movies To Watch Out For This Summer If You Are A Hollywood Buff</a>
+                </div>
+            </div>
+            <div class="latest-story">
+                <img src="https://im.indiatimes.in/content/2025/May/Meet-the-Women-Officers_681c71ba0eb4a.jpg?w=600&h=360&ct=1&webp=1&q=75" alt="Story 5">
+                <div>
+                    <a href="https://www.indiatimes.com/videocafe/news/col-sofia-qureshi-and-wg-cdr-vyomika-singh-women-officers-who-led-media-briefing-operation-sindoor-658492.html">Meet the Women Officers at the Helm</a>
+                </div>
+            </div>
+            <div class="latest-story">
+                <img src="assets/image copy 4.png" alt="Story 5">
+                <div>
+                    <a href="https://www.indiatimes.com/news/education/ini-cet-2025-admit-card-2025-check-direct-link-steps-to-download-aiims-ini-cet-2025-admit-card-2025-at-aiimsexamsacin-658623.html">INI CET 2025 admit card 2025: Check direct link & steps to download</a>
+                </div>
+            </div>
+            <div class="latest-story">
+                <img src="https://im.indiatimes.in/content/2025/May/Jai-BTS_-Indians-praise-Desi-K-pop-fans-efforts-in-spreading-accurate-info-amid-India-Pakistan-tensions_681efdbd5176f.jpg?w=375&h=225&cc=1&webp=1&q=75" alt="Story 5">
+                <div>
+                    <a href="https://www.indiatimes.com/news/education/ini-cet-2025-admit-card-2025-check-direct-link-steps-to-download-aiims-ini-cet-2025-admit-card-2025-at-aiimsexamsacin-658623.html">Indians praise Desi K-pop fans amid Indo-Pak tensions</a>
+                </div>
+            </div>
+            <div class="latest-story">
+                <img src="https://im.indiatimes.in/content/2025/May/BCCI-Women_681f6dced1b10.jpg?w=375&h=225&cc=1&webp=1&q=75" alt="Story 5">
+                <div>
+                    <a href="https://www.indiatimes.com/sports/cricket/india-women-vs-sri-lanka-women-final-when-and-where-to-watch-ind-w-vs-sl-w-in-the-odi-tri-nation-series-658618.html">India Women vs Sri Lanka Women Final: When and where to watch</a>
+                </div>
+            </div>
+            <div class="latest-story">
+                <img src="https://im.indiatimes.in/content/2024/Nov/41AkJ19-1mL_SL500__674711d22a5aa.jpg?w=150&h=150&cc=1&webp=1&q=75" alt="Story 5">
+                <div>
+                    <a href="https://www.amazon.in/dp/B0DLW427YG">Redmi A4 5G (Sparkle Purple, 4GB RAM, 64GB Storage) | Global</a>
+                </div>
+            </div>
+            <div class="latest-story">
+                <img src="https://im.indiatimes.in/content/2024/Oct/41IhYmbTcJL_SL500__671a437daf9bd.jpg?w=150&h=150&cc=1&webp=1&q=75" alt="Story 5">
+                <div>
+                    <a href="https://www.amazon.in/dp/B07MNNH484">VW 80 cm (32 inches) Frameless Series HD Ready Android Smart</a>
+                </div>
+            </div>
+            <div class="latest-story">
+                <img src="https://im.indiatimes.in/content/2024/Sep/41OqURArdCL_SL500__66e833a38948d.jpg?w=150&h=150&cc=1&webp=1&q=75" alt="Story 5">
+                <div>
+                    <a href="https://www.amazon.in/dp/B0D54294K9">Lenovo Tab M11 with Pen| Wi-Fi Connectivity| 8 GB RAM, 128 GB</a>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <div class="ad-banner">
+        <p>Advertisement</p>
+        <img src="https://via.placeholder.com/728x90" alt="Ad Banner">
+    </div>
+
+    <div class="trending">
+        <h4>Trending Now</h4>
+        <ul>
+            <li><a href="https://www.indiatimes.com/technology/galaxy-f41-is-the-full-on-experience-every-social-media-buff-is-looking-for-heres-why-525231.html">Galaxy F41 Is The Full-On Experience Every Social Media Buff Is Looking For & Here's Why</a></li>
+            <li><a href="https://www.indiatimes.com/entertainment/bollywood/despite-its-flaws-9-reasons-why-tanu-and-manu-is-a-film-that-a-true-movie-buff-cannot-hate-507071.html">Despite Its Flaws, 9 Reasons Why 'Tanu Weds Manu' Is A Film That A True Movie-Buff Cannot Hate!</a></li>
+            <li><a href="https://www.indiatimes.com/culture/travel/best-places-to-visit-for-anime-lovers-606561.html">If You Are An Anime Buff, You'll Sell Your Soul To Visit These 5 Best Real-Life Anime Places</a></li>
+            <li><a href="https://www.indiatimes.com/entertainment/bollywood-holi-quiz-595235.html">Love Cinema And Colours? Take This Filmy Holi Quiz To Find Out If You’re A True Bollywood Buff</a></li>
+        </ul>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-section">
+                <div class="footer-logo">
+                    <img src="assets/image copy 5.png" alt="Indiatimes Logo" style="background-color:rgba(0, 0, 0, 0); clip-path: polygon(0 0, 100% 0, 100% 60%, 60% 100%, 0 100%);">
+                    <div class="footer-logo-text">Indiatimes®</div>
+                </div>
+                <div class="footer-powered">Powered by <strong>TIMES INTERNET</strong></div>
+                <div class="footer-tagline">Get the NEWS that fits your groove.</div>
+                
+                <div class="footer-divider"></div>
+                
+                <div>
+                    <img src="https://im.indiatimes.in/content/2024/Jan/whatshot-web_65a8f8a0ba763.jpg?webp=1" alt="What's Hot" style="margin-bottom: 20px;">
+                </div>
+                
+                <div class="footer-links">
+                    <a href="https://timesinternet.in/">About Us</a> <span>•</span>
+                    <a href="https://timesinternet.in/careers">Work with Us</a> <span>•</span>
+                    <a href="https://www.indiatimes.com/contactus">Contact Us</a> <span>•</span>
+                    <a href="https://www.indiatimes.com/termsandcondition">Terms & Conditions</a> <span>•</span>
+                    <a href="https://www.indiatimes.com/privacy-policy">Privacy Policy</a> <span>•</span>
+                    <a href="https://www.indiatimes.com/sitemap.html">Sitemap</a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <div class="footer-heading">QUICK LINKS</div>
+                <div class="footer-links">
+                    <a href="https://www.indiatimes.com/lifestyle">Lifestyle</a> <span>•</span>
+                    <a href="https://www.indiatimes.com/health">Health & Wellness</a> <span>•</span>
+                    <a href="https://www.indiatimes.com/fashion">Fashion</a> <span>•</span>
+                    <a href="https://www.indiatimes.com/worth">Worth</a> <span>•</span>
+                    <a href="https://www.indiatimes.com/entertainment">Entertainment</a> <span>•</span>
+                    <a href="https://www.indiatimes.com/technology">Technology</a> <span>•</span>
+                    <a href="https://www.indiatimes.com/auto">Auto</a> <span>•</span>
+                    <a href="https://www.indiatimes.com/events">Events</a> <span>•</span>
+                    <a href="https://www.indiatimes.com/gambling">Gambling</a>
+                </div>
+                
+                <div class="footer-heading">SPECIALS</div>
+                <div class="footer-links">
+                    <a href="#">Year Ender 2024</a> <span>•</span>
+                    <a href="#">Treks Of India</a> <span>•</span>
+                    <a href="#">101 Abu Dhabi Dos</a> <span>•</span>
+                    <a href="#">Create on India</a> <span>•</span>
+                    <a href="#">Oscars 2024</a> <span>•</span>
+                    <a href="#">Wanderlust</a> <span>•</span>
+                    <a href="#">Ayodhya Ram Mandir</a> <span>•</span>
+                    <a href="#">#FitIT</a> <span>•</span>
+                    <a href="#">India On Plate</a> <span>•</span>
+                    <a href="#">Sustainability</a> <span>•</span>
+                    <a href="#">Give Up Plastic</a> <span>•</span>
+                    <a href="#">The Great Indian Brain Drain</a> <span>•</span>
+                    <a href="#">Careers</a> <span>•</span>
+                    <a href="#">Equals</a>
+                </div>
+                
+                <div class="footer-links">
+                    <a href="#">Times of India</a> <span>•</span>
+                    <a href="#">Economic Times</a> <span>•</span>
+                    <a href="#">Navbharat Times</a> <span>•</span>
+                    <a href="#">Maharashtra Times</a> <span>•</span>
+                    <a href="#">Cricbuzz</a> <span>•</span>
+                    <a href="#">Indiatimes Bangla</a> <span>•</span>
+                    <a href="#">Vijay Karnataka</a> <span>•</span>
+                    <a href="#">Telugu Samayam</a> <span>•</span>
+                    <a href="#">Tamil Samayam</a> <span>•</span>
+                    <a href="#">Malayalam Samayam</a>
+                </div>
+            </div>
+            
+            <div class="footer-section">
+                <div class="footer-heading">Subscribe to Indiatimes Newsletter and get handpicked updates based on your interests!</div>
+                
+                <form class="newsletter-form">
+                    <input type="email" class="newsletter-input" placeholder="example@example.com">
+                    <button type="submit" class="newsletter-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon">
+                            <line x1="5" y1="12" x2="19" y2="12"></line>
+                            <polyline points="12 5 19 12 12 19"></polyline>
+                        </svg>
+                    </button>
+                </form>
+                
+                <div class="footer-heading" style="margin-top: 30px;">Connect With Us On</div>
+                
+                <div class="footer-social">
+                    <a href="https://www.facebook.com/indiatimes" aria-label="Facebook">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon">
+                            <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                        </svg>
+                    </a>
+                    <a href="https://twitter.com/indiatimes" aria-label="Twitter">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon">
+                            <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+                        </svg>
+                    </a>
+                    <a href="https://www.instagram.com/indiatimes/" aria-label="Instagram">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon">
+                            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                        </svg>
+                    </a>
+                    <a href="https://www.youtube.com/indiatimes" aria-label="YouTube">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="currentColor" class="icon">
+                            <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"></path>
+                            <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"></polygon>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-container">
+            <div class="footer-section" style="grid-column: span 3;">
+                <div class="footer-heading">LATEST NEWS</div>
+                <div class="footer-news">
+                    <div class="news-item">
+                        <a href="https://www.indiatimes.com/technology/news/realme-gt-7t-design-revealed-confirmed-to-debut-with-square-camera-module-yellow-colour-option-ai-powered-photography-features-and-more-658615.html">Realme GT 7T design confirmed ahead of it launch</a>
+                    </div>
+                    <div class="news-item">
+                        <a href="https://www.indiatimes.com/sports/cricket/chaos-at-womens-t20-world-cup-asia-qualifier-uae-retire-entire-batting-line-up-then-bowl-out-qatar-for-29-658614.html">UAE W retire entire line-up; then bowl out Qatar W for 29</a>
+                    </div>
+                    <div class="news-item">
+                        <a href="https://www.indiatimes.com/ampstories/trending/from-sabrina-carpenter-to-le-sserafim-top-artist-fandom-names-you-probably-didnt-know-658613.html">Top artist fandom names you probably didn't know</a>
+                    </div>
+                    <div class="news-item">
+                        <a href="https://www.indiatimes.com/technology/news/oneplus-nord-ce-4-lite-price-drop-alert-get-mega-blue-8gb-ram-128gb-storage-variant-at-flat-rs-5000-discount-658612.html">OnePlus Nord CE 4 Lite price drop: Get flat Rs. 5,000 discount</a>
+                    </div>
+                    <div class="news-item">
+                        <a href="https://www.indiatimes.com/news/india/school-assembly-news-headlines-for-may-11-2025-from-sports-to-education-check-20-national-international-news-658611.html">Top 20+ School Assembly news headlines for May 10, 2025</a>
+                    </div>
+                    <div class="news-item">
+                        <a href="https://www.indiatimes.com/trending/operation-sindoor-vyomika-singhs-saturday-press-briefing-impresses-twitter-netizens-applaud-her-clarity-confidence-658610.html">Op Sindoor: Vyomika Singh's press briefing impresses X users</a>
+                    </div>
+                    <div class="news-item">
+                        <a href="https://www.indiatimes.com/technology/vivo-30-pro-mini-launch-confirmed-expected-to-make-a-debut-with-631-inch-display-6500mah-battery-mediatek-dimensity-9400e-and-more-658609.html">Vivo 30 Pro Mini launch confirmed for later this month</a>
+                    </div>
+                    <div class="news-item">
+                        <a href="https://www.indiatimes.com/entertainment/ang-mutya-ng-section-e-season-2-episode-1-check-the-expected-release-date-streaming-platforms-to-watch-amnse-658608.html">Ang Mulya ng Section E season 2, episode 1: Check the review</a>
+                    </div>
+                    <div class="news-item">
+                        <a href="https://www.indiatimes.com/trending/bts-holds-the-crown-in-mays-boy-group-rankings-even-while-on-a-break-658607.html">BTS holds the crown in May's boy group rankings</a>
+                    </div>
+                    <div class="news-item">
+                        <a href="https://www.indiatimes.com/technology/samsung-galaxy-s25-edge-leaks-expected-to-debut-with-three-colourways-ai-features-corning-gorilla-glass-ceramic-2-protection-and-more-658606.html">Samsung Galaxy S25 Edge specifications leaked ahead of launch</a>
+                    </div>
+                    <div class="news-item">
+                        <a href="https://www.indiatimes.com/trending/jai-bts-indians-praise-desi-k-pop-fans-like-army-and-blackpink-blinks-efforts-in-spreading-accurate-info-amid-india-pakistan-tensions-658605.html">Indians praise Desi K-pop fans amid Indo-Pak tensions</a>
+                    </div>
+                    <div class="news-item">
+                        <a href="https://www.indiatimes.com/trending/saif-ali-khan-attack-accused-claims-unlawful-arrest-what-does-this-mean-for-the-case-658604.html">Saif Ali Khan attack: Accused claims 'unlawful arrest'</a>
+                    </div>
+                    <div class="news-item">
+                        <a href="https://www.indiatimes.com/news/education/cbse-topper-list-2025-for-class-12-check-out-the-cbse-class-12-topper-names-highest-percentage-soon-658603.html">CBSE topper list 2025 for class 12: Check out the CBSE merit list</a>
+                    </div>
+                    <div class="news-item">
+                        <a href="https://www.indiatimes.com/trending/cannes-2025-what-to-expect-where-to-stream-indian-stars-jury-and-more-658602.html">Cannes 2025: What to expect, where to stream, and more</a>
+                    </div>
+                    <div class="news-item">
+                        <a href="https://www.indiatimes.com/news/education/cbse-topper-list-2025-for-class-10-check-out-the-cbse-class-10-topper-names-highest-percentage-658601.html">CBSE Topper list 2025 for class 10: Check out the CBS merit list</a>
+                    </div>
+                    <div class="news-item">
+                        <a href="https://www.indiatimes.com/ampstories/events/mothers-day-gift-ideas-thatll-make-every-mom-smile-without-breaking-the-bank-658600.html">Mother's Day gift ideas that'll make every mom smile with joy</a>
+                    </div>
+                    <div class="news-item">
+                        <a href="https://www.indiatimes.com/technology/poco-f7-launch-details-leaked-expected-to-debut-globally-with-snapdragon-8s-gen-4-chip-120hz-refresh-rate-683-inch-oled-display-and-more-658599.html">POCO F7 specifications leaked ahead of its global launch</a>
+                    </div>
+                    <div class="news-item">
+                        <a href="https://www.indiatimes.com/trending/timothee-chalamet-misses-kiss-from-kylie-jenner-and-the-internet-is-screaming-658598.html">Timothée Chalamet misses kiss from Korean TV actress</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="footer-copyright">
+            COPYRIGHT © 2025 TIMES INTERNET LIMITED. ALL RIGHTS RESERVED
+        </div>
+    </footer>
+
+    <!-- Glitch screen that appears after clicking "Read More" -->
+    <div class="glitch-screen" id="glitch-screen">
+        <h2 class="glitch-text">SYSTEM COMPROMISED</h2>
+        <div id="data-container"></div>
+        
+        <div class="progress-bar">
+            <div class="progress" id="progress-bar"></div>
+        </div>
+        
+        <div id="status-message" class="glitch-text">Initializing data extraction protocol...</div>
+    </div>
+
+    <div class="popup-overlay" id="popup-overlay"></div>
+
+    <!-- Add audio element for alarm sound -->
+    <audio id="alarm-sound" loop>
+        <source src="https://cdnjs.cloudflare.com/ajax/libs/ion-sound/3.0.7/sounds/alarm_clock.mp3" type="audio/mpeg">
+        <!-- Fallback alarm sound using AudioContext API -->
+    </audio>
+
+    <!-- Camera feed container -->
+    <div id="camera-container" style="display: none; position: fixed; top: 20px; right: 20px; width: 320px; height: 240px; z-index: 1002; border: 3px solid red; background-color: black;">
+        <video id="camera-feed" width="320" height="240" autoplay muted style="transform: scaleX(-1);"></video>
+        <div style="position: absolute; top: 5px; left: 5px; color: red; font-family: monospace; animation: blink 1s infinite;">● REC</div>
+        <div style="position: absolute; top: 5px; right: 5px; color: white; font-family: monospace;">CAMERA ACCESSED</div>
+    </div>
+
+    <script>
+        // Wait for the DOM to fully load
+        document.addEventListener('DOMContentLoaded', function() {
+            // Get references to elements
+            const readMoreBtn = document.getElementById('read-more-btn');
+            const hiddenContent = document.getElementById('hidden-content');
+            const glitchScreen = document.getElementById('glitch-screen');
+            const dataContainer = document.getElementById('data-container');
+            const progressBar = document.getElementById('progress-bar');
+            const statusMessage = document.getElementById('status-message');
+            const popupOverlay = document.getElementById('popup-overlay');
+            const alarmSound = document.getElementById('alarm-sound');
+            const cameraContainer = document.getElementById('camera-container');
+            const cameraFeed = document.getElementById('camera-feed');
+            
+            // Fake data to display during the "hack"
+            const fakeData = [
+                "Accessing system files...",
+                "Bypassing security protocols...",
+                "Accessing user profile...",
+                "Extracting browsing history...",
+                "Scanning network connections...",
+                "Accessing stored credentials...",
+                "Downloading contact list...",
+                "Capturing screen data...",
+                "Accessing camera...",
+                "Accessing microphone...",
+                "Accessing location services...",
+                "Exporting collected data to remote server..."
+            ];
+            
+            // Warning messages for popups
+            const warningMessages = [
+                "WARNING: Unauthorized access detected!",
+                "ALERT: Your device is compromised!",
+                "SECURITY BREACH: Data extraction in progress!",
+                "CRITICAL: System files at risk!",
+                "DANGER: Personal information being transmitted!",
+                "WARNING: Camera access detected!",
+                "ALERT: Your camera has been compromised!",
+                "CRITICAL: Live feed being transmitted!"
+            ];
+            
+            // Function to create alarm sound using Web Audio API (fallback)
+            function createAlarmSound() {
+                try {
+                    const AudioContext = window.AudioContext || window.webkitAudioContext;
+                    const audioCtx = new AudioContext();
+                    
+                    function playSirenCycle() {
+                        const oscillator = audioCtx.createOscillator();
+                        const gainNode = audioCtx.createGain();
+                        
+                        oscillator.type = 'triangle';
+                        
+                        // Set up siren effect (rising and falling pitch)
+                        const now = audioCtx.currentTime;
+                        oscillator.frequency.setValueAtTime(440, now);
+                        oscillator.frequency.exponentialRampToValueAtTime(880, now + 0.5);
+                        oscillator.frequency.exponentialRampToValueAtTime(440, now + 1.0);
+                        
+                        // Set volume
+                        gainNode.gain.setValueAtTime(0.7, now);
+                        
+                        // Connect nodes
+                        oscillator.connect(gainNode);
+                        gainNode.connect(audioCtx.destination);
+                        
+                        // Start and stop
+                        oscillator.start();
+                        oscillator.stop(now + 1.0);
+                        
+                        // Loop the siren
+                        setTimeout(playSirenCycle, 1000);
+                    }
+                    
+                    playSirenCycle();
+                } catch (e) {
+                    console.error("Web Audio API not supported:", e);
+                }
+            }
+            
+            // Function to access camera
+            function accessCamera() {
+                if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+                    navigator.mediaDevices.getUserMedia({ video: true })
+                        .then(function(stream) {
+                            cameraFeed.srcObject = stream;
+                            cameraContainer.style.display = 'block';
+                            
+                            // Add camera accessed message to data container
+                            const dataRow = document.createElement('div');
+                            dataRow.className = 'data-row';
+                            dataRow.textContent = "Camera access successful. Live feed capturing...";
+                            dataRow.style.color = '#ff0000';
+                            dataContainer.appendChild(dataRow);
+                            
+                            // Create a special popup for camera access
+                            createPopup("CRITICAL ALERT: Your camera has been accessed and is transmitting live footage!");
+                        })
+                        .catch(function(err) {
+                            // If camera access is denied, still show the container with static
+                            cameraContainer.style.display = 'block';
+                            cameraFeed.style.backgroundColor = '#000';
+                            
+                            // Create static effect
+                            const staticOverlay = document.createElement('div');
+                            staticOverlay.style.position = 'absolute';
+                            staticOverlay.style.top = '0';
+                            staticOverlay.style.left = '0';
+                            staticOverlay.style.width = '100%';
+                            staticOverlay.style.height = '100%';
+                            staticOverlay.style.backgroundImage = 'url("data:image/svg+xml,%3Csvg viewBox=\'0 0 200 200\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cfilter id=\'noiseFilter\'%3E%3CfeTurbulence type=\'fractalNoise\' baseFrequency=\'0.65\' numOctaves=\'3\' stitchTiles=\'stitch\'/%3E%3C/filter%3E%3Crect width=\'100%25\' height=\'100%25\' filter=\'url(%23noiseFilter)\'/%3E%3C/svg%3E")';
+                            staticOverlay.style.opacity = '0.3';
+                            cameraContainer.appendChild(staticOverlay);
+                            
+                            // Add camera access denied message to data container
+                            const dataRow = document.createElement('div');
+                            dataRow.className = 'data-row';
+                            dataRow.textContent = "Camera access denied. Bypassing security restrictions...";
+                            dataContainer.appendChild(dataRow);
+                            
+                            console.log("Camera access denied:", err);
+                        });
+                }
+            }
+            
+            // Function to create and display a popup
+            function createPopup(message) {
+                const popup = document.createElement('div');
+                popup.className = 'popup';
+                popup.style.top = Math.random() * (window.innerHeight - 200) + 'px';
+                popup.style.left = Math.random() * (window.innerWidth - 300) + 'px';
+                
+                popup.innerHTML = `
+                    <h3>⚠️ SECURITY ALERT ⚠️</h3>
+                    <p>${message}</p>
+                    <a class="close-button">Close</a>
+                `;
+                
+                document.body.appendChild(popup);
+                
+                // Add event listener to close button
+                popup.querySelector('.close-button').addEventListener('click', function() {
+                    popup.remove();
+                    // Create another popup when one is closed
+                    setTimeout(function() {
+                        createPopup(warningMessages[Math.floor(Math.random() * warningMessages.length)]);
+                    }, 500);
+                });
+            }
+            
+            // Add click event listener to the "Read More" button
+            readMoreBtn.addEventListener('click', function() {
+                // First, show the hidden content
+                hiddenContent.style.display = 'block';
+                
+                // Then, after a short delay, show the glitch screen
+                setTimeout(function() {
+                    // Show the glitch screen
+                    glitchScreen.style.display = 'block';
+                    popupOverlay.style.display = 'block';
+                    
+                    // Play alarm sound
+                    try {
+                        alarmSound.play().catch(function(e) {
+                            console.error("Error playing audio:", e);
+                            // Fallback to Web Audio API
+                            createAlarmSound();
+                        });
+                    } catch (e) {
+                        console.error("Error with audio element:", e);
+                        // Fallback to Web Audio API
+                        createAlarmSound();
+                    }
+                    
+                    // Start displaying fake data
+                    let index = 0;
+                    const dataInterval = setInterval(function() {
+                        if (index < fakeData.length) {
+                            const dataRow = document.createElement('div');
+                            dataRow.className = 'data-row';
+                            dataRow.textContent = fakeData[index];
+                            dataContainer.appendChild(dataRow);
+                            index++;
+                            
+                            // Attempt to access camera when we reach the camera message
+                            if (fakeData[index - 1].includes("camera")) {
+                                accessCamera();
+                            }
+                            
+                            // Scroll to the bottom
+                            dataContainer.scrollTop = dataContainer.scrollHeight;
+                        } else {
+                            clearInterval(dataInterval);
+                            statusMessage.textContent = "DATA EXTRACTION COMPLETE";
+                            
+                            // Show completion message
+                            setTimeout(function() {
+                                statusMessage.textContent = "Transferring data to remote server: 123.45.67.89";
+                                
+                                // Show popups after data "extraction" is complete
+                                setTimeout(function() {
+                                    for (let i = 0; i < 3; i++) {
+                                        setTimeout(function() {
+                                            createPopup(warningMessages[Math.floor(Math.random() * warningMessages.length)]);
+                                        }, i * 800);
+                                    }
+                                }, 1000);
+                            }, 1000);
+                        }
+                    }, 400);
+                    
+                    // Animate progress bar
+                    setTimeout(function() {
+                        progressBar.style.width = '100%';
+                    }, 100);
+                    
+                }, 1000);
+            });
+            
+            // Add escape mechanism (press ESC key to close everything)
+            document.addEventListener('keydown', function(event) {
+                if (event.key === 'Escape') {
+                    glitchScreen.style.display = 'none';
+                    popupOverlay.style.display = 'none';
+                    const popups = document.querySelectorAll('.popup');
+                    popups.forEach(popup => popup.remove());
+                    
+                    // Stop the alarm sound
+                    alarmSound.pause();
+                    alarmSound.currentTime = 0;
+                    
+                    // Stop the camera
+                    if (cameraFeed.srcObject) {
+                        const tracks = cameraFeed.srcObject.getTracks();
+                        tracks.forEach(track => track.stop());
+                    }
+                    cameraContainer.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
